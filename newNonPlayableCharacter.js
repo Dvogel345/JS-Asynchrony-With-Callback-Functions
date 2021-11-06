@@ -43,6 +43,7 @@ function newNonPlayableCharacter(x, y) {
         // setting timeout to stop the npc
         setTimeout(() => {
             stop()
+            // if callback is passed calling upon the callback again
             if(callback){
                 callback();
             }

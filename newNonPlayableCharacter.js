@@ -23,27 +23,56 @@ function newNonPlayableCharacter(x, y) {
 
     setInterval(moveCharacter, 1)
 
-    function walkEast() {
+    // duration = time npc moves in a specified direction
+    function walkEast(duration, callback) {
         direction = 'east'
         element.src = `./assets/red-character/east.gif`
+        // setting timeout to stop the npc
+        setTimeout(() => {
+            stop()
+            // if callback is passed calling upon the callback again
+            if(callback){
+                callback();
+            }  
+        }, duration) 
     }
 
-    function walkNorth() {
+    function walkNorth(duration, callback) {
         direction = 'north'
         element.src = `./assets/red-character/north.gif`
+        // setting timeout to stop the npc
+        setTimeout(() => {
+            stop()
+            if(callback){
+                callback();
+            }
+        }, duration) 
     }
 
-    function walkWest() {
+    function walkWest(duration, callback) {
         direction = 'west'
         element.src = `./assets/red-character/west.gif`
+        
+        setTimeout(() => {
+            stop()
+            if(callback){
+                callback();
+            }
+        }, duration) 
     }
 
-    function walkSouth() {
+    function walkSouth(duration, callback) {
         direction = 'south'
         element.src = `./assets/red-character/south.gif`
+        setTimeout(() => {
+            stop()
+            if(callback){
+                callback();
+            }
+        }, duration) 
     }
 
-    function stop() {
+    function stop(duration, callback) {
         direction = null
         element.src = `./assets/red-character/static.gif`
     }

@@ -5,7 +5,12 @@ const pc = newPlayableCharacter(100, 110)
 const npc = newNonPlayableCharacter(50, 300)
 
 // have the NPC start walking east immediately
-npc.walkEast()
+npc.walkEast(500, () => {
+    npc.walkNorth(500)
+})
+
+// let products = getProducts()
+// let gardeningProducts = products.filter(p => p.catagory === 'gardening')
 
 // Create the inventory
 const inventory = newInventory()
